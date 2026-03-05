@@ -26,6 +26,13 @@ const firaSans = Fira_Sans_Condensed({
   display: "swap",
 });
 
+export const viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: false,
+};
+
 export const metadata: Metadata = {
   title: "Polina Tsvetkova Grooming Studio - Професионална грижа за домашни любимци",
   description:

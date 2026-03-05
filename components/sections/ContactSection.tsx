@@ -326,11 +326,11 @@ export default function ContactSection() {
         }
       `}</style>
 
-      <div className="max-w-[900px] mx-auto relative z-10 px-2">
-        <h2 className="text-[28px] md:text-[36px] font-black text-center mb-2 tracking-tight">
+      <div className="max-w-[800px] mx-auto relative z-10 px-2">
+        <h2 className="text-[24px] md:text-[36px] font-black text-center mb-2 tracking-tight">
           Запазете час
         </h2>
-        <p className="text-center text-[13px] md:text-[15px] text-black/70 mb-8 md:mb-10">
+        <p className="text-center text-[12px] md:text-[15px] text-black/70 mb-6 md:mb-10">
           Няколко стъпки до перфектната грижа за вашия любимец
         </p>
 
@@ -395,9 +395,9 @@ export default function ContactSection() {
           </div>
 
           {/* Multi-step Booking Form */}
-          <div className="lg:col-span-2 glass-card rounded-2xl p-4 md:p-6 shadow-[0_8px_32px_rgba(0,0,0,0.08)] order-1 lg:order-2">
+          <div className="lg:col-span-2 glass-card rounded-2xl p-3 md:p-6 shadow-[0_8px_32px_rgba(0,0,0,0.08)] order-1 lg:order-2">
             {/* Progress Indicator */}
-            <div className="flex items-center justify-center gap-3 mb-6">
+            <div className="flex items-center justify-center gap-3 mb-4 md:mb-6">
               <div className={`flex items-center gap-1.5 ${step === 1 ? "text-[#6B3A5E]" : "text-black/30"}`}>
                 <div className={`w-8 h-8 rounded-full flex items-center justify-center text-[14px] font-bold transition-all ${
                   step === 1 ? "bg-[#6B3A5E] text-white shadow-lg" : "bg-black/10"
@@ -418,10 +418,10 @@ export default function ContactSection() {
             </div>
 
             {step === 1 ? (
-              <div className="animate-slide-in space-y-4">
-                <h3 className="text-[18px] font-black mb-4">Информация за резервацията</h3>
+              <div className="animate-slide-in space-y-3 md:space-y-4">
+                <h3 className="text-[16px] md:text-[18px] font-black mb-3 md:mb-4">Информация за резервацията</h3>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-2.5 md:gap-3">
                   <div className="space-y-1.5">
                     <label className="text-[11px] font-bold text-black/50 uppercase tracking-wider">Вашето име *</label>
                     <input
@@ -429,7 +429,7 @@ export default function ContactSection() {
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                       placeholder="Иван Иванов"
-                      className="input-field w-full rounded-xl px-4 py-3 text-[14px] focus:outline-none"
+                      className="input-field w-full rounded-xl px-3 py-2.5 text-[16px] md:text-[14px] focus:outline-none"
                     />
                   </div>
 
@@ -440,7 +440,7 @@ export default function ContactSection() {
                       value={formData.phone}
                       onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                       placeholder="+359 88 123 4567"
-                      className="input-field w-full rounded-xl px-4 py-3 text-[14px] focus:outline-none"
+                      className="input-field w-full rounded-xl px-3 py-2.5 text-[16px] md:text-[14px] focus:outline-none"
                     />
                   </div>
                 </div>
@@ -452,7 +452,7 @@ export default function ContactSection() {
                     value={formData.breed}
                     onChange={(e) => setFormData({ ...formData, breed: e.target.value })}
                     placeholder="напр. Златист ретривър"
-                    className="input-field w-full rounded-xl px-4 py-3 text-[14px] focus:outline-none"
+                    className="input-field w-full rounded-xl px-3 py-2.5 text-[16px] md:text-[14px] focus:outline-none"
                   />
                 </div>
 
@@ -464,7 +464,7 @@ export default function ContactSection() {
                         key={option.value}
                         type="button"
                         onClick={() => toggleService(option.value)}
-                        className={`p-3 rounded-xl transition-all text-left relative ${
+                        className={`p-2.5 md:p-3 rounded-xl transition-all text-left relative ${
                           formData.services.includes(option.value)
                             ? "bg-[#6B3A5E] text-white shadow-lg scale-[1.02]"
                             : "bg-white/80 text-black hover:bg-white"
