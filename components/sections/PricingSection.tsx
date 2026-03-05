@@ -173,7 +173,7 @@ export default function PricingSection() {
                           {tier.price}
                         </span>
                         <span className={`text-[18px] font-semibold ${isHighlighted ? 'text-[#6B3A5E]' : 'text-black/60'}`}>
-                          лв
+                          €
                         </span>
                       </div>
                       <p className="text-[13px] text-black/40 mt-1">
@@ -240,33 +240,35 @@ export default function PricingSection() {
 
         {/* Emotional trust message */}
         <div className="mt-12 md:mt-20 text-center px-4">
-          <div className="inline-flex flex-wrap md:flex-nowrap items-center justify-center gap-3 md:gap-4 bg-white/15 backdrop-blur-sm px-4 md:px-8 py-4 md:py-5 rounded-2xl md:rounded-3xl shadow-lg border border-white/20">
-            <div className="flex items-center gap-2 md:gap-3">
+          <div className="flex flex-col md:flex-row items-stretch md:items-center justify-center gap-3 md:gap-4 bg-white/15 backdrop-blur-sm px-5 md:px-8 py-5 md:py-5 rounded-2xl md:rounded-3xl shadow-lg border border-white/20 max-w-[360px] md:max-w-none mx-auto">
+            <div className="flex items-center gap-3">
               <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-gradient-to-br from-pink-400 to-pink-600 flex items-center justify-center text-white text-lg md:text-xl shadow-md flex-shrink-0">
                 ♥
               </div>
               <div className="text-left">
-                <div className="text-[12px] md:text-[15px] font-bold text-white">С любов за всеки пухкав приятел</div>
+                <div className="text-[13px] md:text-[15px] font-bold text-white">С любов за всеки пухкав приятел</div>
                 <div className="text-[11px] md:text-[13px] text-white/70">Над 5000 щастливи опашки</div>
               </div>
             </div>
             <div className="hidden md:block w-px h-12 bg-white/20"></div>
-            <div className="flex items-center gap-2 md:gap-3">
+            <div className="block md:hidden w-full h-px bg-white/15"></div>
+            <div className="flex items-center gap-3">
               <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-gradient-to-br from-amber-400 to-amber-600 flex items-center justify-center text-white text-lg md:text-xl shadow-md flex-shrink-0">
                 ✨
               </div>
               <div className="text-left">
-                <div className="text-[12px] md:text-[15px] font-bold text-white">Професионална грижа</div>
+                <div className="text-[13px] md:text-[15px] font-bold text-white">Професионална грижа</div>
                 <div className="text-[11px] md:text-[13px] text-white/70">Сертифицирани грумъри</div>
               </div>
             </div>
             <div className="hidden md:block w-px h-12 bg-white/20"></div>
-            <div className="flex items-center gap-2 md:gap-3">
+            <div className="block md:hidden w-full h-px bg-white/15"></div>
+            <div className="flex items-center gap-3">
               <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-gradient-to-br from-green-400 to-green-600 flex items-center justify-center text-white text-lg md:text-xl shadow-md flex-shrink-0">
                 ☘
               </div>
               <div className="text-left">
-                <div className="text-[12px] md:text-[15px] font-bold text-white">Еко продукти</div>
+                <div className="text-[13px] md:text-[15px] font-bold text-white">Еко продукти</div>
                 <div className="text-[11px] md:text-[13px] text-white/70">Безопасни за любимците</div>
               </div>
             </div>

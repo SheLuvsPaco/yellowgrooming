@@ -253,12 +253,98 @@ export default function GallerySection() {
         ))}
       </div>
 
-      {/* ── Chapter 5: Reveal — full width gorgeous result ── */}
+      {/* ── Chapter 4b: SPA & relaxation ── */}
+      <div className="flex flex-col md:flex-row gap-[3px] mb-[3px]">
+        {galleryChapters.chapter4b.images.map((chapter, i) => (
+          <div
+            key={i}
+            ref={(el) => { cellRefs.current[i + 8] = el; }}
+            className={`story-cell relative ${
+              chapter.wide ? "md:w-[65%]" : "flex-1"
+            } h-[30vh] md:h-[50vh] overflow-hidden cursor-pointer ${isCellVisible(i + 8) ? 'animate' : ''}`}
+          >
+            <div className={`story-img absolute inset-0 ${loadedImages.has(i + 8) ? "" : "image-skeleton"}`}>
+              <Image
+                src={chapter.img}
+                alt={chapter.alt}
+                fill
+                className="object-cover object-center"
+                sizes="(max-width: 768px) 100vw, 65vw"
+                loading="lazy"
+                onLoad={() => markImageLoaded(i + 8)}
+              />
+            </div>
+            <div
+              className={`absolute inset-0 ${
+                chapter.wide
+                  ? "bg-gradient-to-tr from-black/75 to-transparent"
+                  : "bg-gradient-to-t from-black/65 to-transparent"
+              } flex items-end p-5 md:p-8`}
+            >
+              <div className="story-caption">
+                <p className="text-white/60 text-[10px] md:text-[11px] tracking-[0.3em] uppercase mb-1">
+                  {chapter.chapterLabel}
+                </p>
+                <h3 className="text-white text-[18px] md:text-[26px] font-black leading-tight">
+                  {chapter.title}
+                </h3>
+                {chapter.subtitle && (
+                  <p className="text-white/70 text-[12px] md:text-[14px] mt-1">
+                    {chapter.subtitle}
+                  </p>
+                )}
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {/* ── Chapter 4c: Final touches trio ── */}
+      <div className="flex flex-col md:flex-row gap-[3px] mb-[3px]">
+        {galleryChapters.chapter4c.images.map((chapter, i) => (
+          <div
+            key={i}
+            ref={(el) => { cellRefs.current[i + 10] = el; }}
+            className={`story-cell relative flex-1 h-[28vh] md:h-[40vh] overflow-hidden cursor-pointer ${isCellVisible(i + 10) ? 'animate' : ''}`}
+          >
+            <div className={`story-img absolute inset-0 ${loadedImages.has(i + 10) ? "" : "image-skeleton"}`}>
+              <Image
+                src={chapter.img}
+                alt={chapter.alt}
+                fill
+                className="object-cover object-center"
+                sizes="(max-width: 768px) 100vw, 33vw"
+                loading="lazy"
+                onLoad={() => markImageLoaded(i + 10)}
+              />
+            </div>
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-4 md:p-6">
+              <div className="story-caption">
+                {chapter.chapterLabel && (
+                  <p className="text-white/60 text-[9px] md:text-[10px] tracking-[0.3em] uppercase mb-1">
+                    {chapter.chapterLabel}
+                  </p>
+                )}
+                <h3 className="text-white text-[16px] md:text-[18px] font-black">
+                  {chapter.title}
+                </h3>
+                {chapter.subtitle && (
+                  <p className="text-white/60 text-[11px] md:text-[13px] mt-1">
+                    {chapter.subtitle}
+                  </p>
+                )}
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {/* ── Final Chapter: Reveal — full width gorgeous result ── */}
       <div
-        ref={(el) => { cellRefs.current[8] = el; }}
-        className={`story-cell relative h-[40vh] md:h-[55vh] overflow-hidden cursor-pointer ${isCellVisible(8) ? 'animate' : ''}`}
+        ref={(el) => { cellRefs.current[13] = el; }}
+        className={`story-cell relative h-[40vh] md:h-[55vh] overflow-hidden cursor-pointer ${isCellVisible(13) ? 'animate' : ''}`}
       >
-        <div className={`story-img absolute inset-0 ${loadedImages.has(8) ? "" : "image-skeleton"}`}>
+        <div className={`story-img absolute inset-0 ${loadedImages.has(13) ? "" : "image-skeleton"}`}>
           <Image
             src={galleryChapters.chapter5.img}
             alt={galleryChapters.chapter5.alt}
@@ -266,7 +352,7 @@ export default function GallerySection() {
             className="object-cover object-center"
             sizes="100vw"
             loading="lazy"
-            onLoad={() => markImageLoaded(8)}
+            onLoad={() => markImageLoaded(13)}
           />
         </div>
         <div className="absolute inset-0 bg-gradient-to-l from-black/75 via-black/20 to-transparent flex items-end md:items-center justify-end p-6 md:p-16 text-right">

@@ -26,10 +26,10 @@ export default function HeroSection() {
                 titleRef.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
               }`}
             >
-              <h2 className="text-[24px] md:text-[44px] font-bold leading-[1.15] mb-3 md:mb-4 tracking-tight">
+              <h2 className="text-[32px] md:text-[44px] font-bold leading-[1.15] mb-4 md:mb-4 tracking-tight">
                 Вашият любимец<br />заслужава<br />най-доброто
               </h2>
-              <p className="text-[13px] md:text-[18px] font-medium leading-relaxed max-w-[400px] mb-3 md:mb-6 text-black/85">
+              <p className="text-[15px] md:text-[18px] font-medium leading-relaxed max-w-[400px] mb-5 md:mb-6 text-black/85">
                 Професионална грижа, любов и<br />внимание за вашия домашен любимец.<br />Резервирайте час онлайн в секунди.
               </p>
             </div>
