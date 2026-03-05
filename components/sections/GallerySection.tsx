@@ -268,7 +268,8 @@ export default function GallerySection() {
                 src={chapter.img}
                 alt={chapter.alt}
                 fill
-                className="object-cover object-center"
+                className="object-cover"
+                style={{ objectPosition: chapter.wide ? "center 35%" : "center center" }}
                 sizes="(max-width: 768px) 100vw, 65vw"
                 loading="lazy"
                 onLoad={() => markImageLoaded(i + 8)}
