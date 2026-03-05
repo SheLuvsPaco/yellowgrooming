@@ -113,13 +113,13 @@ export default function GallerySection() {
             onLoad={() => markImageLoaded(0)}
           />
         </div>
-        <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/20 to-transparent flex items-end p-12">
+        <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/20 to-transparent flex items-end p-6 md:p-12">
           <div className="story-caption">
-            <p className="text-white/60 text-[13px] tracking-[0.3em] uppercase mb-2">
+            <p className="text-white/60 text-[11px] md:text-[13px] tracking-[0.3em] uppercase mb-2">
               {galleryChapters.chapter1.chapterLabel}
             </p>
             <h3
-              className="text-white text-[36px] font-black leading-tight"
+              className="text-white text-[22px] md:text-[36px] font-black leading-tight"
               dangerouslySetInnerHTML={{ __html: galleryChapters.chapter1.title }}
             ></h3>
           </div>
@@ -127,12 +127,12 @@ export default function GallerySection() {
       </div>
 
       {/* ── Chapter 2: Side-by-side — wash & prep ── */}
-      <div className="flex gap-[3px] mb-[3px]">
+      <div className="flex flex-col md:flex-row gap-[3px] mb-[3px]">
         {galleryChapters.chapter2.images.map((chapter, i) => (
           <div
             key={i}
             ref={(el) => { cellRefs.current[i + 1] = el; }}
-            className={`story-cell relative flex-1 h-[35vh] md:h-[45vh] overflow-hidden cursor-pointer ${isCellVisible(i + 1) ? 'animate' : ''}`}
+            className={`story-cell relative flex-1 h-[30vh] md:h-[45vh] overflow-hidden cursor-pointer ${isCellVisible(i + 1) ? 'animate' : ''}`}
           >
             <div className={`story-img absolute inset-0 ${loadedImages.has(i + 1) ? "" : "image-skeleton"}`}>
               <Image
@@ -145,15 +145,15 @@ export default function GallerySection() {
                 onLoad={() => markImageLoaded(i + 1)}
               />
             </div>
-            <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-8">
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-5 md:p-8">
               <div className="story-caption">
-                <p className="text-white/60 text-[11px] tracking-[0.3em] uppercase mb-1">
+                <p className="text-white/60 text-[10px] md:text-[11px] tracking-[0.3em] uppercase mb-1">
                   {chapter.chapterLabel}
                 </p>
-                <h3 className="text-white text-[22px] font-black">
+                <h3 className="text-white text-[18px] md:text-[22px] font-black">
                   {chapter.title}
                 </h3>
-                <p className="text-white/70 text-[13px] mt-1">
+                <p className="text-white/70 text-[12px] md:text-[13px] mt-1">
                   {chapter.subtitle}
                 </p>
               </div>
@@ -163,14 +163,14 @@ export default function GallerySection() {
       </div>
 
       {/* ── Chapter 3: Wide cinematic — the cut ── */}
-      <div className="flex gap-[3px] mb-[3px]">
+      <div className="flex flex-col md:flex-row gap-[3px] mb-[3px]">
         {galleryChapters.chapter3.images.map((chapter, i) => (
           <div
             key={i}
             ref={(el) => { cellRefs.current[i + 3] = el; }}
             className={`story-cell relative ${
-              chapter.wide ? "w-[65%]" : "flex-1"
-            } h-[40vh] md:h-[50vh] overflow-hidden cursor-pointer ${isCellVisible(i + 3) ? 'animate' : ''}`}
+              chapter.wide ? "md:w-[65%]" : "flex-1"
+            } h-[30vh] md:h-[50vh] overflow-hidden cursor-pointer ${isCellVisible(i + 3) ? 'animate' : ''}`}
           >
             <div className={`story-img absolute inset-0 ${loadedImages.has(i + 3) ? "" : "image-skeleton"}`}>
               <Image
@@ -188,19 +188,18 @@ export default function GallerySection() {
                 chapter.wide
                   ? "bg-gradient-to-tr from-black/75 to-transparent"
                   : "bg-gradient-to-t from-black/65 to-transparent"
-              } flex items-end p-8`}
+              } flex items-end p-5 md:p-8`}
             >
               <div className="story-caption">
-                <p className="text-white/60 text-[11px] tracking-[0.3em] uppercase mb-2">
+                <p className="text-white/60 text-[10px] md:text-[11px] tracking-[0.3em] uppercase mb-2">
                   {chapter.chapterLabel}
                 </p>
                 <h3
-                  className="text-white font-black leading-tight"
-                  style={{ fontSize: chapter.wide ? "30px" : "20px" }}
+                  className="text-white font-black leading-tight text-[20px] md:text-[30px]"
                   dangerouslySetInnerHTML={{ __html: chapter.title }}
                 ></h3>
                 {chapter.subtitle && (
-                  <p className="text-white/70 text-[14px] mt-2">
+                  <p className="text-white/70 text-[12px] md:text-[14px] mt-2">
                     {chapter.subtitle}
                   </p>
                 )}
@@ -211,12 +210,12 @@ export default function GallerySection() {
       </div>
 
       {/* ── Chapter 4: Three-column — finishing touches ── */}
-      <div className="flex gap-[3px] mb-[3px]">
+      <div className="flex flex-col md:flex-row gap-[3px] mb-[3px]">
         {galleryChapters.chapter4.images.map((chapter, i) => (
           <div
             key={i}
             ref={(el) => { cellRefs.current[i + 5] = el; }}
-            className={`story-cell relative flex-1 h-[35vh] md:h-[40vh] overflow-hidden cursor-pointer ${isCellVisible(i + 5) ? 'animate' : ''}`}
+            className={`story-cell relative flex-1 h-[28vh] md:h-[40vh] overflow-hidden cursor-pointer ${isCellVisible(i + 5) ? 'animate' : ''}`}
           >
             <div className={`story-img absolute inset-0 ${loadedImages.has(i + 5) ? "" : "image-skeleton"}`}>
               <Image
@@ -229,19 +228,19 @@ export default function GallerySection() {
                 onLoad={() => markImageLoaded(i + 5)}
               />
             </div>
-            <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-6">
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-4 md:p-6">
               <div className="story-caption">
                 {chapter.chapterLabel && (
-                  <p className="text-white/60 text-[10px] tracking-[0.3em] uppercase mb-1">
+                  <p className="text-white/60 text-[9px] md:text-[10px] tracking-[0.3em] uppercase mb-1">
                     {chapter.chapterLabel}
                   </p>
                 )}
                 <h3
-                  className="text-white text-[18px] font-black"
+                  className="text-white text-[16px] md:text-[18px] font-black"
                   dangerouslySetInnerHTML={{ __html: chapter.title }}
                 ></h3>
                 {chapter.subtitle && (
-                  <p className="text-white/60 text-[13px] mt-1">
+                  <p className="text-white/60 text-[11px] md:text-[13px] mt-1">
                     {chapter.subtitle}
                   </p>
                 )}
@@ -267,24 +266,24 @@ export default function GallerySection() {
             onLoad={() => markImageLoaded(8)}
           />
         </div>
-        <div className="absolute inset-0 bg-gradient-to-l from-black/75 via-black/20 to-transparent flex items-center justify-end p-16 text-right">
+        <div className="absolute inset-0 bg-gradient-to-l from-black/75 via-black/20 to-transparent flex items-end md:items-center justify-end p-6 md:p-16 text-right">
           <div className="story-caption max-w-[400px]">
-            <p className="text-white/60 text-[13px] tracking-[0.3em] uppercase mb-3">
+            <p className="text-white/60 text-[10px] md:text-[13px] tracking-[0.3em] uppercase mb-2 md:mb-3">
               {galleryChapters.chapter5.chapterLabel}
             </p>
             <h3
-              className="text-white text-[38px] font-black leading-tight"
+              className="text-white text-[22px] md:text-[38px] font-black leading-tight"
               dangerouslySetInnerHTML={{
                 __html: galleryChapters.chapter5.title,
               }}
             ></h3>
-            <p className="text-white/70 text-[16px] mt-4 leading-relaxed">
+            <p className="text-white/70 text-[12px] md:text-[16px] mt-2 md:mt-4 leading-relaxed">
               {galleryChapters.chapter5.subtitle}
             </p>
             {galleryChapters.chapter5.hasLink && (
               <a
                 href="#контакти"
-                className="inline-block mt-6 bg-white text-black font-bold text-[15px] px-7 py-3 rounded-full hover:bg-amber-400 transition-colors"
+                className="inline-block mt-4 md:mt-6 bg-white text-black font-bold text-[13px] md:text-[15px] px-5 md:px-7 py-2.5 md:py-3 rounded-full hover:bg-amber-400 transition-colors"
               >
                 Запази час →
               </a>

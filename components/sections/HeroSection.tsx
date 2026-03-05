@@ -93,15 +93,15 @@ export default function HeroSection() {
           </div>
 
           {/* Right — Dogs */}
-          <div className="col-span-1 md:col-span-7 relative h-full order-first md:order-last">
-            <div className="absolute bottom-[-10px] md:bottom-[-40px] left-[-10px] md:left-[-20px] w-[200px] md:w-[620px] z-20 pointer-events-none">
+          <div className="col-span-1 md:col-span-7 relative h-[180px] md:h-full order-last">
+            <div className="absolute bottom-0 md:bottom-[-40px] left-[10px] md:left-[-20px] w-[160px] md:w-[620px] z-20 pointer-events-none">
               <img
                 src="/images/dog1.png"
                 className="w-full h-full object-contain drop-shadow-[10px_10px_15px_rgba(0,0,0,0.3)]"
                 alt="Dog 1"
               />
             </div>
-            <div className="absolute right-[-20px] md:right-[-60px] bottom-[-10px] md:bottom-[-40px] w-[150px] md:w-[420px] z-10 pointer-events-none">
+            <div className="absolute right-[10px] md:right-[-60px] bottom-0 md:bottom-[-40px] w-[130px] md:w-[420px] z-10 pointer-events-none">
               <img
                 src="/images/dog2.png"
                 className="w-full h-full object-contain drop-shadow-[-5px_10px_15px_rgba(0,0,0,0.2)]"

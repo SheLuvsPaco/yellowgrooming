@@ -90,7 +90,7 @@ export default function PricingSection() {
         </div>
 
         {/* Pricing Cards with unique pet-friendly design */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 items-stretch">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-8 items-stretch max-w-[380px] md:max-w-none mx-auto w-full">
           {pricingTiers.map((tier, index) => {
             const isHighlighted = tier.highlight;
             const isHovered = hoveredIndex === index;
@@ -118,7 +118,7 @@ export default function PricingSection() {
                 <div
                   className={`relative bg-[#FFFEF9] rounded-[2rem] md:rounded-[3rem] transition-all duration-500 flex flex-col h-full border-2 border-white/50 ${
                     isHighlighted
-                      ? 'shadow-[0_20px_60px_rgba(255,202,88,0.4),0_0_40px_rgba(255,202,88,0.2)] scale-105 z-10'
+                      ? 'shadow-[0_20px_60px_rgba(255,202,88,0.4),0_0_40px_rgba(255,202,88,0.2)] md:scale-105 z-10'
                       : (isHovered || isVisibleOnScroll)
                       ? 'shadow-[0_15px_45px_rgba(255,255,255,0.25),0_0_30px_rgba(255,255,255,0.15)] scale-[1.02]'
                       : 'shadow-[0_8px_30px_rgba(255,255,255,0.2),0_0_20px_rgba(255,255,255,0.1)]'
@@ -143,11 +143,11 @@ export default function PricingSection() {
                     🐾
                   </div>
 
-                  <div className="p-8 pt-12 flex-1 flex flex-col">
+                  <div className="p-5 pt-10 md:p-8 md:pt-12 flex-1 flex flex-col">
                     {/* Pet size indicator with creative styling */}
                     <div className="text-center mb-4">
                       <div
-                        className={`inline-block p-6 rounded-full mb-4 transition-all duration-300 ${
+                        className={`inline-block p-4 md:p-6 rounded-full mb-3 md:mb-4 transition-all duration-300 ${
                           isHighlighted
                             ? 'bg-gradient-to-br from-[#6B3A5E] to-[#5B2E48] scale-110'
                             : isHovered
@@ -155,10 +155,10 @@ export default function PricingSection() {
                             : 'bg-[#6B3A5E]/5'
                         }`}
                       >
-                        <span className="text-5xl block">{tier.emoji}</span>
+                        <span className="text-4xl md:text-5xl block">{tier.emoji}</span>
                       </div>
                       <h3
-                        className={`text-[28px] font-black mb-1 transition-colors ${
+                        className={`text-[24px] md:text-[28px] font-black mb-1 transition-colors ${
                           isHighlighted ? 'text-[#6B3A5E]' : 'text-black'
                         }`}
                       >
@@ -169,7 +169,7 @@ export default function PricingSection() {
                       </p>
                       {/* Price Display */}
                       <div className="flex items-baseline justify-center gap-1">
-                        <span className={`text-[42px] font-black leading-none ${isHighlighted ? 'text-[#6B3A5E]' : 'text-black'}`}>
+                        <span className={`text-[34px] md:text-[42px] font-black leading-none ${isHighlighted ? 'text-[#6B3A5E]' : 'text-black'}`}>
                           {tier.price}
                         </span>
                         <span className={`text-[18px] font-semibold ${isHighlighted ? 'text-[#6B3A5E]' : 'text-black/60'}`}>
@@ -182,7 +182,7 @@ export default function PricingSection() {
                     </div>
 
                     {/* Services with warm checkmarks */}
-                    <div className="space-y-3 mb-8 flex-1">
+                    <div className="space-y-2.5 md:space-y-3 mb-6 md:mb-8 flex-1">
                       {tier.services.map((service, i) => (
                         <div
                           key={i}
