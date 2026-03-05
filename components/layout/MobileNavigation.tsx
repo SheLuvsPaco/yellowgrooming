@@ -98,7 +98,7 @@ export default function MobileNavigation() {
           <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-[#FFAB00]/80 to-transparent">
             <a
               href="tel:+359881234567"
-              className="flex items-center gap-3 bg-[#6B3A5E] text-white py-4 px-6 rounded-2xl shadow-lg hover:bg-[#5B2E48] transition-all"
+              className="flex items-center gap-3 bg-[#6B3A5E] text-white py-4 px-6 rounded-2xl shadow-lg hover:bg-[#5B2E48] hover:-translate-y-1 hover:shadow-[0_12px_32px_rgba(91,46,72,0.4)] transition-all"
             >
               <span className="text-2xl">📞</span>
               <div className="flex-1 text-left">

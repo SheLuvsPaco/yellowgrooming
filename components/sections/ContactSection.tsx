@@ -354,7 +354,7 @@ export default function ContactSection() {
 
               <a
                 href="tel:+359881234567"
-                className="group w-full bg-[#6B3A5E] text-white text-[13px] md:text-[15px] font-bold py-3 md:py-4 rounded-xl shadow-[0_8px_24px_rgba(107,58,94,0.3)] hover:scale-[1.02] hover:bg-[#5B2E48] hover:shadow-[0_12px_32px_rgba(91,46,72,0.4)] transition-all flex items-center justify-center gap-3"
+                className="group w-full bg-[#6B3A5E] text-white text-[13px] md:text-[15px] font-bold py-3 md:py-4 rounded-xl shadow-[0_8px_24px_rgba(107,58,94,0.3)] hover:scale-[1.02] hover:-translate-y-1 hover:bg-[#5B2E48] hover:shadow-[0_12px_32px_rgba(91,46,72,0.4)] transition-all flex items-center justify-center gap-3"
               >
                 <span className="relative z-10 flex items-center gap-2">
                   <span>Обади се</span>

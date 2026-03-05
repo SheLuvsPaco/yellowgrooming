@@ -42,7 +42,7 @@ export default function HeroSection() {
             >
               <a
                 href="#контакти"
-                className="group relative bg-[#6B3A5E] text-white text-[16px] md:text-[22px] font-bold py-[10px] md:py-[14px] px-6 md:px-10 rounded-2xl transition-all duration-300 hover:scale-[1.03] hover:bg-[#5B2E48] hover:shadow-[0_16px_40px_rgba(91,46,72,0.4)] text-center md:text-left"
+                className="group relative bg-[#6B3A5E] text-white text-[16px] md:text-[22px] font-bold py-[10px] md:py-[14px] px-6 md:px-10 rounded-2xl transition-all duration-300 hover:scale-[1.03] hover:-translate-y-1 hover:bg-[#5B2E48] hover:shadow-[0_16px_40px_rgba(91,46,72,0.4)] text-center md:text-left"
               >
                 <span className="flex items-center justify-center md:justify-start gap-2 md:gap-3">
                   <span>Запази час</span>
@@ -53,7 +53,7 @@ export default function HeroSection() {
               </a>
               <a
                 href="tel:+359881234567"
-                className="group bg-white/80 backdrop-blur-sm text-[#6B3A5E] text-[16px] md:text-[22px] font-bold py-[10px] md:py-[14px] px-4 md:px-6 rounded-2xl shadow-[0_8px_24px_rgba(107,58,94,0.15)] transition-all duration-300 hover:scale-[1.03] hover:bg-white hover:shadow-[0_12px_32px_rgba(107,58,94,0.25)] flex items-center justify-center gap-3"
+                className="group bg-white/80 backdrop-blur-sm text-[#6B3A5E] text-[16px] md:text-[22px] font-bold py-[10px] md:py-[14px] px-4 md:px-6 rounded-2xl shadow-[0_8px_24px_rgba(107,58,94,0.15)] transition-all duration-300 hover:scale-[1.03] hover:-translate-y-1 hover:bg-white hover:shadow-[0_12px_32px_rgba(107,58,94,0.25)] flex items-center justify-center gap-3"
               >
                 <span className="w-9 h-9 md:w-12 md:h-12 bg-[#6B3A5E]/10 rounded-xl flex items-center justify-center text-lg md:text-2xl group-hover:bg-[#6B3A5E]/20 group-hover:rotate-12 transition-all">
                   📞

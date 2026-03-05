@@ -210,10 +210,10 @@ export default function PricingSection() {
                     {/* CTA with warm styling */}
                     <a
                       href="#контакти"
-                      className={`block w-full text-center py-4 rounded-2xl font-bold text-[16px] transition-all duration-300 relative overflow-hidden group ${
+                      className={`block w-full text-center py-4 rounded-2xl font-bold text-[16px] transition-all duration-300 hover:-translate-y-1 relative overflow-hidden group ${
                         isHighlighted
-                          ? 'bg-gradient-to-r from-[#6B3A5E] to-[#5B2E48] text-white shadow-lg'
-                          : 'bg-[#6B3A5E]/10 text-[#6B3A5E] hover:bg-gradient-to-r hover:from-[#6B3A5E] hover:to-[#5B2E48] hover:text-white'
+                          ? 'bg-gradient-to-r from-[#6B3A5E] to-[#5B2E48] text-white shadow-lg hover:shadow-[0_12px_32px_rgba(107,58,94,0.4)]'
+                          : 'bg-[#6B3A5E]/10 text-[#6B3A5E] hover:bg-gradient-to-r hover:from-[#6B3A5E] hover:to-[#5B2E48] hover:text-white hover:shadow-lg'
                       }`}
                     >
                       <span className="relative z-10 flex items-center justify-center gap-2">
