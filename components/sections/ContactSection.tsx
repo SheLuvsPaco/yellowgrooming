@@ -263,33 +263,6 @@ export default function ContactSection() {
         ))}
       </div>
 
-      {/* Confetti Dots */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        {Array.from({ length: 30 }).map((_, i) => {
-          // Deterministic pseudo-random values based on index
-          const seed1 = (i * 9301 + 49297) % 233280;
-          const seed2 = (i * 12345 + 67890) % 233280;
-          const seed3 = (i * 54321 + 13579) % 233280;
-          const seed4 = (i * 98765 + 24680) % 233280;
-          const seed5 = (i * 11111 + 22222) % 233280;
-
-          return (
-            <div
-              key={`dot-${i}`}
-              className="absolute rounded-full"
-              style={{
-                top: `${(seed1 / 233280) * 100}%`,
-                left: `${(seed2 / 233280) * 100}%`,
-                width: `${4 + (seed3 / 233280) * 8}px`,
-                height: `${4 + (seed3 / 233280) * 8}px`,
-                background: ['#609919', '#6B3A5E', '#FFCA58', '#FFAB00', 'pink'][seed4 % 5],
-                opacity: 0.2 + (seed5 / 233280) * 0.3,
-                animation: `confetti ${5 + (seed1 / 233280) * 5}s ease-in-out ${(seed2 / 233280) * 3}s infinite`,
-              }}
-            />
-          );
-        })}
-      </div>
 
       <style>{`
         @keyframes floatAndRotate {

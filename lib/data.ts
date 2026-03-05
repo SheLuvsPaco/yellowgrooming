@@ -6,7 +6,7 @@ export const services = [
     title: "Миене и сушене",
     desc: "Нежно миене с висококачествена козметика и сушене с вентилатор.",
     accent: "from-black/50 to-black/20",
-    bg: "/images/dogshower.jpg",
+    bg: "/images/dogshower-new.jpg",
   },
   {
     num: "02",

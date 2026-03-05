@@ -73,7 +73,9 @@ export default function GallerySection() {
         @media (hover: hover) {
           .story-cell:hover .story-caption { opacity: 1; transform: translateY(0); }
         }
-        .story-cell.animate .story-caption { opacity: 1; transform: translateY(0); }
+        @media (hover: none) {
+          .story-cell.animate .story-caption { opacity: 1; transform: translateY(0); }
+        }
         .image-skeleton {
           background: linear-gradient(90deg, #1a1a1a 25%, #2a2a2a 50%, #1a1a1a 75%);
           background-size: 200% 100%;

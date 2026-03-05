@@ -2,18 +2,16 @@
 
 import { services } from "@/lib/data";
 import { useScrollTrigger } from "@/lib/hooks/useScrollTrigger";
+import Image from "next/image";
 
-// Static background positions defined outside component to avoid hydration issues
-const SERVICE_BG_POSITIONS: Record<string, string> = {
-  "Миене и сушене": "35% 50%",
-  "СПА пакет": "45% 50%",
+const SERVICE_OBJECT_POSITIONS: Record<string, string> = {
+  "Миене и сушене": "center 30%",
+  "СПА пакет": "center 58%",
   "Подстригване": "center center",
   "Ноктопочистване": "center center",
 };
 
 export default function ServicesSection() {
-  const sectionRef = useScrollTrigger(0.1);
-
   return (
     <section
       id="услуги"
@@ -47,6 +45,25 @@ export default function ServicesSection() {
         @keyframes shimmerSlide {
           0% { transform: translateX(-100%); }
           100% { transform: translateX(100%); }
+        }
+        .service-card::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: linear-gradient(
+            105deg,
+            transparent 40%,
+            rgba(255,255,255,0.15) 45%,
+            rgba(255,255,255,0.25) 50%,
+            rgba(255,255,255,0.15) 55%,
+            transparent 60%
+          );
+          transform: translateX(-100%);
+          z-index: 5;
+          pointer-events: none;
         }
         .service-card.animate-shimmer::before {
           animation: shimmerSlide 0.6s ease forwards;
@@ -96,70 +113,81 @@ export default function ServicesSection() {
         </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-[2px] bg-black/10 rounded-2xl md:rounded-3xl overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.12)]">
-          {services.map((s, i) => {
-            const cardRef = useScrollTrigger(0.2);
-
-            return (
-              <div
-                key={i}
-                ref={cardRef.ref}
-                className={`service-card relative p-6 md:p-10 cursor-default overflow-hidden bg-cover ${
-                  cardRef.isVisible ? 'animate-shimmer' : ''
-                }`}
-                style={{
-                  backgroundImage: `url('${s.bg}')`,
-                  backgroundPosition: SERVICE_BG_POSITIONS[s.title] || "center center"
-                }}
-              >
-                {/* Overlay for background image - lighter to show images */}
-                <div className="absolute inset-0 bg-gradient-to-br from-black/40 to-black/20 transition-all duration-300"></div>
-
-                {/* Large background number */}
-                <div className="absolute -top-4 -right-2 text-[80px] md:text-[130px] font-black text-black/5 leading-none select-none pointer-events-none">
-                  {s.num}
-                </div>
-
-                {/* Number badge */}
-                <div className="inline-flex items-center gap-2 mb-4 md:mb-6 relative z-10">
-                  <span className="text-[10px] md:text-[11px] font-bold tracking-[0.25em] uppercase text-white/70">
-                    {s.num}
-                  </span>
-                  <span className="w-8 h-[1.5px] bg-white/40 block"></span>
-                </div>
-
-                {/* Icon */}
-                <div className="text-[40px] md:text-[56px] mb-4 md:mb-5 inline-block relative z-10">
-                  {s.icon}
-                </div>
-
-                {/* Title */}
-                <h3 className="text-[22px] md:text-[28px] font-black mb-3 tracking-tight leading-tight text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.6)] relative z-10">
-                  {s.title}
-                </h3>
-
-                {/* Divider */}
-                <div className="w-12 h-[3px] bg-white/50 rounded-full mb-3 md:mb-4 relative z-10"></div>
-
-                {/* Description */}
-                <p className="text-[13px] md:text-[15px] text-white/90 leading-relaxed max-w-[280px] drop-shadow-[0_1px_2px_rgba(0,0,0,0.5)] relative z-10">
-                  {s.desc}
-                </p>
-
-                {/* CTA link */}
-                <a
-                  href="#контакти"
-                  className="inline-flex items-center gap-2 mt-4 md:mt-6 text-[12px] md:text-[13px] font-bold text-white/70 hover:text-white transition-colors tracking-wider uppercase drop-shadow-[0_1px_2px_rgba(0,0,0,0.4)] relative z-10"
-                >
-                  Запази час
-                  <span className="text-[14px] md:text-[16px] inline-block">
-                    →
-                  </span>
-                </a>
-              </div>
-            );
-          })}
+          {services.map((s, i) => (
+            <ServiceCard key={i} service={s} />
+          ))}
         </div>
       </div>
     </section>
+  );
+}
+
+function ServiceCard({ service: s }: { service: typeof services[number] }) {
+  const cardRef = useScrollTrigger(0.2);
+
+  return (
+    <div
+      ref={cardRef.ref}
+      className={`service-card relative p-6 md:p-10 cursor-default overflow-hidden ${
+        cardRef.isVisible ? 'animate-shimmer' : ''
+      }`}
+    >
+      {/* Background image using Next.js Image */}
+      <div className="absolute inset-0">
+        <Image
+          src={s.bg}
+          alt={s.title}
+          fill
+          className="object-cover"
+          style={{ objectPosition: SERVICE_OBJECT_POSITIONS[s.title] || "center center" }}
+          sizes="(max-width: 768px) 100vw, 50vw"
+        />
+      </div>
+
+      {/* Overlay for background image */}
+      <div className="absolute inset-0 bg-gradient-to-br from-black/40 to-black/20 transition-all duration-300"></div>
+
+      {/* Large background number */}
+      <div className="absolute -top-4 -right-2 text-[80px] md:text-[130px] font-black text-black/5 leading-none select-none pointer-events-none">
+        {s.num}
+      </div>
+
+      {/* Number badge */}
+      <div className="inline-flex items-center gap-2 mb-4 md:mb-6 relative z-10">
+        <span className="text-[10px] md:text-[11px] font-bold tracking-[0.25em] uppercase text-white/70">
+          {s.num}
+        </span>
+        <span className="w-8 h-[1.5px] bg-white/40 block"></span>
+      </div>
+
+      {/* Icon */}
+      <div className="text-[40px] md:text-[56px] mb-4 md:mb-5 inline-block relative z-10">
+        {s.icon}
+      </div>
+
+      {/* Title */}
+      <h3 className="text-[22px] md:text-[28px] font-black mb-3 tracking-tight leading-tight text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.6)] relative z-10">
+        {s.title}
+      </h3>
+
+      {/* Divider */}
+      <div className="w-12 h-[3px] bg-white/50 rounded-full mb-3 md:mb-4 relative z-10"></div>
+
+      {/* Description */}
+      <p className="text-[13px] md:text-[15px] text-white/90 leading-relaxed max-w-[280px] drop-shadow-[0_1px_2px_rgba(0,0,0,0.5)] relative z-10">
+        {s.desc}
+      </p>
+
+      {/* CTA link */}
+      <a
+        href="#контакти"
+        className="inline-flex items-center gap-2 mt-4 md:mt-6 text-[12px] md:text-[13px] font-bold bg-white/20 hover:bg-white/30 backdrop-blur-sm text-white px-4 py-2 rounded-full transition-all hover:scale-105 tracking-wider uppercase drop-shadow-[0_2px_8px_rgba(0,0,0,0.3)] relative z-10 border border-white/30"
+      >
+        Запази час
+        <span className="text-[14px] md:text-[16px] inline-block">
+          →
+        </span>
+      </a>
+    </div>
   );
 }
