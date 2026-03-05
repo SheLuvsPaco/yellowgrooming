@@ -73,7 +73,10 @@ export default function GallerySection() {
         @media (hover: hover) {
           .story-cell:hover .story-caption { opacity: 1; transform: translateY(0); }
         }
-        @media (hover: none) {
+        @media (max-width: 767px) {
+          .story-caption { opacity: 1; transform: translateY(0); }
+        }
+        @media (hover: none) and (min-width: 768px) {
           .story-cell.animate .story-caption { opacity: 1; transform: translateY(0); }
         }
         .image-skeleton {

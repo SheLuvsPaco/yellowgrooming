@@ -17,7 +17,7 @@ export default function HeroSection() {
       <FloatingPaws />
 
       <div className="max-w-[1400px] mx-auto h-full flex flex-col relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-4 mt-16 md:mt-20 h-[calc(100vh-100px)] md:h-[calc(100vh-120px)]">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-4 mt-16 md:mt-20 md:h-[calc(100vh-120px)]">
           {/* Left — Hero Copy */}
           <div className="col-span-1 md:col-span-5 flex flex-col pt-2 md:pt-4 pl-2 md:pl-4 relative z-20">
             <div
@@ -36,13 +36,13 @@ export default function HeroSection() {
 
             <div
               ref={ctaRef.ref}
-              className={`flex flex-col md:flex-row items-center gap-3 md:gap-4 transition-all duration-700 ease-out delay-100 ${
+              className={`flex flex-row md:flex-row items-center gap-3 md:gap-4 transition-all duration-700 ease-out delay-100 ${
                 ctaRef.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
               }`}
             >
               <a
                 href="#контакти"
-                className="group relative bg-[#6B3A5E] text-white text-[16px] md:text-[22px] font-bold py-[10px] md:py-[14px] px-6 md:px-10 rounded-2xl transition-all duration-300 hover:scale-[1.03] hover:-translate-y-1 hover:bg-[#5B2E48] hover:shadow-[0_16px_40px_rgba(91,46,72,0.4)] text-center md:text-left"
+                className="group relative bg-[#6B3A5E] text-white text-[14px] md:text-[22px] font-bold py-[10px] md:py-[14px] px-5 md:px-10 rounded-2xl transition-all duration-300 hover:scale-[1.03] hover:-translate-y-1 hover:bg-[#5B2E48] hover:shadow-[0_16px_40px_rgba(91,46,72,0.4)] text-center md:text-left"
               >
                 <span className="flex items-center justify-center md:justify-start gap-2 md:gap-3">
                   <span>Запази час</span>
@@ -53,25 +53,25 @@ export default function HeroSection() {
               </a>
               <a
                 href="tel:+359881234567"
-                className="group bg-white/80 backdrop-blur-sm text-[#6B3A5E] text-[16px] md:text-[22px] font-bold py-[10px] md:py-[14px] px-4 md:px-6 rounded-2xl shadow-[0_8px_24px_rgba(107,58,94,0.15)] transition-all duration-300 hover:scale-[1.03] hover:-translate-y-1 hover:bg-white hover:shadow-[0_12px_32px_rgba(107,58,94,0.25)] flex items-center justify-center gap-3"
+                className="group bg-white/80 backdrop-blur-sm text-[#6B3A5E] text-[14px] md:text-[22px] font-bold py-[10px] md:py-[14px] px-4 md:px-6 rounded-2xl shadow-[0_8px_24px_rgba(107,58,94,0.15)] transition-all duration-300 hover:scale-[1.03] hover:-translate-y-1 hover:bg-white hover:shadow-[0_12px_32px_rgba(107,58,94,0.25)] flex items-center justify-center gap-2 md:gap-3"
               >
-                <span className="w-9 h-9 md:w-12 md:h-12 bg-[#6B3A5E]/10 rounded-xl flex items-center justify-center text-lg md:text-2xl group-hover:bg-[#6B3A5E]/20 group-hover:rotate-12 transition-all">
+                <span className="w-8 h-8 md:w-12 md:h-12 bg-[#6B3A5E]/10 rounded-xl flex items-center justify-center text-base md:text-2xl group-hover:bg-[#6B3A5E]/20 group-hover:rotate-12 transition-all">
                   📞
                 </span>
                 <span>Обади се</span>
               </a>
             </div>
 
-            {/* Polaroid Gallery */}
+            {/* Polaroid Gallery — desktop only */}
             <div
               ref={polaroidsRef.ref}
-              className="absolute bottom-0 md:bottom-4 left-0 right-0 mx-auto w-[280px] md:w-[380px] h-[140px] md:h-[260px]"
+              className="hidden md:block absolute bottom-4 left-0 right-0 mx-auto w-[380px] h-[260px]"
               style={{ perspective: "800px" }}
             >
               {heroPolaroids.map((p, i) => (
                 <div
                   key={i}
-                  className="absolute bottom-0 w-[60px] md:w-[165px] cursor-pointer transition-all duration-500 ease-out hover:z-30 hover:scale-110 hover:drop-shadow-[0_20px_30px_rgba(0,0,0,0.4)]"
+                  className="absolute bottom-0 w-[165px] cursor-pointer transition-all duration-500 ease-out hover:z-30 hover:scale-110 hover:drop-shadow-[0_20px_30px_rgba(0,0,0,0.4)]"
                   style={{
                     left: `${(parseInt(p.left) / 380) * 100}%`,
                     rotate: p.rotate,
@@ -79,11 +79,11 @@ export default function HeroSection() {
                     transformOrigin: "bottom center",
                   }}
                 >
-                  <div className="bg-white p-[4px] md:p-[8px] pb-[16px] md:pb-[36px] shadow-[4px_6px_20px_rgba(0,0,0,0.35)]">
-                    <div className="w-full h-[45px] md:h-[110px] overflow-hidden bg-[#f0ebe3] flex items-center justify-center">
+                  <div className="bg-white p-[8px] pb-[36px] shadow-[4px_6px_20px_rgba(0,0,0,0.35)]">
+                    <div className="w-full h-[110px] overflow-hidden bg-[#f0ebe3] flex items-center justify-center">
                       <img src={p.img} className="w-full h-full object-contain block" alt={p.name} />
                     </div>
-                    <div className="mt-0.5 md:mt-1 text-center text-[5px] md:text-[9px] font-medium text-black/40 tracking-widest uppercase">
+                    <div className="mt-1 text-center text-[9px] font-medium text-black/40 tracking-widest uppercase">
                       {p.name}
                     </div>
                   </div>
@@ -92,16 +92,16 @@ export default function HeroSection() {
             </div>
           </div>
 
-          {/* Right — Dogs */}
-          <div className="col-span-1 md:col-span-7 relative h-[180px] md:h-full order-last">
-            <div className="absolute bottom-0 md:bottom-[-40px] left-[10px] md:left-[-20px] w-[160px] md:w-[620px] z-20 pointer-events-none">
+          {/* Right — Dogs (desktop: in grid) */}
+          <div className="hidden md:block col-span-7 relative h-full">
+            <div className="absolute bottom-[-40px] left-[-20px] w-[620px] z-20 pointer-events-none">
               <img
                 src="/images/dog1.png"
                 className="w-full h-full object-contain drop-shadow-[10px_10px_15px_rgba(0,0,0,0.3)]"
                 alt="Dog 1"
               />
             </div>
-            <div className="absolute right-[10px] md:right-[-60px] bottom-0 md:bottom-[-40px] w-[130px] md:w-[420px] z-10 pointer-events-none">
+            <div className="absolute right-[-60px] bottom-[-40px] w-[420px] z-10 pointer-events-none">
               <img
                 src="/images/dog2.png"
                 className="w-full h-full object-contain drop-shadow-[-5px_10px_15px_rgba(0,0,0,0.2)]"
@@ -109,6 +109,24 @@ export default function HeroSection() {
               />
             </div>
           </div>
+        </div>
+      </div>
+
+      {/* Dogs — mobile only, stuck to section bottom */}
+      <div className="md:hidden absolute bottom-0 left-0 right-0 h-[220px] pointer-events-none z-10">
+        <div className="absolute bottom-0 left-[5px] w-[170px] z-20">
+          <img
+            src="/images/dog1.png"
+            className="w-full h-full object-contain drop-shadow-[10px_10px_15px_rgba(0,0,0,0.3)]"
+            alt="Dog 1"
+          />
+        </div>
+        <div className="absolute right-[5px] bottom-0 w-[140px] z-10">
+          <img
+            src="/images/dog2.png"
+            className="w-full h-full object-contain drop-shadow-[-5px_10px_15px_rgba(0,0,0,0.2)]"
+            alt="Dog 2"
+          />
         </div>
       </div>
     </section>

@@ -90,7 +90,7 @@ export default function PricingSection() {
         </div>
 
         {/* Pricing Cards with unique pet-friendly design */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-8 items-stretch max-w-[380px] md:max-w-none mx-auto w-full">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-8 items-stretch max-w-[360px] md:max-w-none mx-auto w-full">
           {pricingTiers.map((tier, index) => {
             const isHighlighted = tier.highlight;
             const isHovered = hoveredIndex === index;
@@ -143,9 +143,9 @@ export default function PricingSection() {
                     🐾
                   </div>
 
-                  <div className="p-5 pt-10 md:p-8 md:pt-12 flex-1 flex flex-col">
+                  <div className="p-5 pt-8 md:p-8 md:pt-12 flex-1 flex flex-col">
                     {/* Pet size indicator with creative styling */}
-                    <div className="text-center mb-4">
+                    <div className="text-center mb-3 md:mb-4">
                       <div
                         className={`inline-block p-4 md:p-6 rounded-full mb-3 md:mb-4 transition-all duration-300 ${
                           isHighlighted
@@ -164,7 +164,7 @@ export default function PricingSection() {
                       >
                         {tier.tier}
                       </h3>
-                      <p className="text-[15px] text-black/50 font-medium mb-4">
+                      <p className="text-[13px] md:text-[15px] text-black/50 font-medium mb-3 md:mb-4">
                         {tier.subtitle}
                       </p>
                       {/* Price Display */}
