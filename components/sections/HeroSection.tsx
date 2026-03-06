@@ -2,6 +2,8 @@
 
 import { useState } from 'react';
 import FloatingPaws from "./FloatingPaws";
+import Logo from "@/components/layout/Logo";
+import Navigation from "@/components/layout/Navigation";
 import { heroPolaroids } from "@/lib/data";
 import { useScrollTrigger } from "@/lib/hooks/useScrollTrigger";
 
@@ -14,6 +16,8 @@ export default function HeroSection() {
 
   return (
     <section className="relative h-screen min-h-[650px] md:min-h-[700px] bg-gradient-to-br from-[#FFAB00] via-[#FFCA58] to-[#FDF4E5] px-4 md:px-6 pt-5 pb-0 overflow-hidden">
+      <Logo />
+      <Navigation />
       <FloatingPaws />
 
       <div className="max-w-[1400px] mx-auto h-full flex flex-col relative z-10">
@@ -26,12 +30,17 @@ export default function HeroSection() {
                 titleRef.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
               }`}
             >
-              <h2 className="text-[38px] md:text-[44px] font-bold leading-[1.1] mb-4 md:mb-4 tracking-tight">
-                Вашият любимец<br />заслужава<br />най-доброто
+              <h2 className="font-display text-[38px] md:text-[44px] font-black leading-[1.05] mb-4 md:mb-4 tracking-[-0.02em] text-[#3B1A2E]">
+                Подстригване и СПА<br />грижи, създадени<br />с <em className="italic text-[#FFCA58] relative inline-block"><span className="absolute inset-0 bg-[#6B3A5E]/90 -skew-y-2 -z-10 rounded-sm scale-x-110 scale-y-125"></span>любов</em>
               </h2>
-              <p className="text-[17px] md:text-[18px] font-medium leading-relaxed max-w-[400px] mb-5 md:mb-6 text-black/85">
-                Професионална грижа, любов и<br />внимание за вашия домашен любимец.<br />Резервирайте час онлайн за секунди.
+              <p className="font-body text-[17px] md:text-[18px] font-light leading-[1.8] max-w-[400px] mb-3 md:mb-4 text-[#3B1A2E]/75">
+                Професионално подстригване, СПА и<br />грижа за козината — в ръцете<br />на опитен екип.
               </p>
+              <div className="flex items-center gap-2 mb-5 md:mb-6">
+                <span className="font-body text-[14px] md:text-[15px] font-semibold text-black/70 tracking-wide">
+                  🐾 Над 3000 щастливи любимци
+                </span>
+              </div>
             </div>
 
             <div

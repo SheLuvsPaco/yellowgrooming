@@ -1,9 +1,8 @@
 import type { Metadata } from "next";
-import { Flavors, Gugi, Fira_Sans_Condensed } from "next/font/google";
+import { Flavors, Gugi, Fira_Sans_Condensed, Playfair_Display, Poppins } from "next/font/google";
 import "./globals.css";
-import Navigation from "@/components/layout/Navigation";
 import MobileNavigation from "@/components/layout/MobileNavigation";
-import Logo from "@/components/layout/Logo";
+import StickyNav from "@/components/layout/StickyNav";
 
 const flavors = Flavors({
   weight: ["400"],
@@ -23,6 +22,20 @@ const firaSans = Fira_Sans_Condensed({
   weight: ["400"],
   subsets: ["latin"],
   variable: "--font-fira-sans",
+  display: "swap",
+});
+
+const playfair = Playfair_Display({
+  weight: ["700", "800", "900"],
+  subsets: ["latin", "cyrillic"],
+  variable: "--font-display",
+  display: "swap",
+});
+
+const poppins = Poppins({
+  weight: ["300", "400", "500", "600"],
+  subsets: ["latin"],
+  variable: "--font-body",
   display: "swap",
 });
 
@@ -83,12 +96,11 @@ export default function RootLayout({
 }>) {
   return (
     <html
-      className={`${flavors.variable} ${gugi.variable} ${firaSans.variable}`}
+      className={`${flavors.variable} ${gugi.variable} ${firaSans.variable} ${playfair.variable} ${poppins.variable}`}
       lang="bg"
     >
       <body className="font-sans antialiased">
-        <Logo />
-        <Navigation />
+        <StickyNav />
         <MobileNavigation />
         {children}
       </body>

@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function Logo() {
   return (
-    <div className="fixed -top-6 left-4 z-50">
+    <div className="absolute -top-6 left-4 z-50">
       <Image
         src="/images/logopolina.png"
         alt="Polina Tsvetkova Grooming Studio"
